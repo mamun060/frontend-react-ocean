@@ -4,7 +4,7 @@ interface SubmitButtonProps {
     className?: string
 }
 
-const ButtonBtn: React.FC<SubmitButtonProps> = ({ text="Submit", onClick, className}) => {
+const SubmitBtn: React.FC<SubmitButtonProps> = ({ text="Submit", onClick, className}) => {
     return (
         <button
             type="submit"
@@ -16,4 +16,4 @@ const ButtonBtn: React.FC<SubmitButtonProps> = ({ text="Submit", onClick, classN
     );
 }
  
-export default ButtonBtn;
+export default SubmitBtn;
