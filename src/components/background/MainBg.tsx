@@ -4,7 +4,7 @@ interface MainBgProps {
 
 function MainBg({children}: MainBgProps) {
   return (
-    <div className="bg-black">
+    <div className="bg-white">
       {children}
     </div>
   )

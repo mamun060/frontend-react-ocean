@@ -1,22 +1,21 @@
 import './App.css'
-import FormElement from './components/formElement/FormElement'
 import Layouts from './components/layouts/Layouts'
-import TableData from './components/tables/TableData'
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ProudctPage from './pages/ProudctPage';
 
 function App() {
   return (
     <Layouts>
-        <div className='text-white shadow-gray-50 text-4xl text-left'>
-           <h2 className=' text-center py-5'>Crud App</h2>
-           <div className=' flex justify-center gap-10'>
-            <div>
-                <FormElement />
-            </div>
-            <div>
-                <TableData />
-            </div>
-           </div>
-        </div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path='/products' element={<ProudctPage />} />
+          <Route path="*" element={
+            <h1 className=' h-svh flex justify-center items-center text-4xl font-extrabold text-red-400'>404 Not Found</h1>
+          } />
+        </Routes>
     </Layouts>
   )
 }
