@@ -1,5 +1,5 @@
 interface SubmitButtonProps {
-    text?: String;
+    text?: string;
     onClick: () => void;
     className?: string
 }
