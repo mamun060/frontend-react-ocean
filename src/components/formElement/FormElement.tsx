@@ -7,7 +7,12 @@ interface FormData {
     employeeName: string,
     salary: string 
 }
-const FormElement = () => {
+
+interface FormElementProps {
+    onAddEmployee: (data: FormData) => void;
+}
+
+const FormElement = ({onAddEmployee}: FormElementProps) => {
     const [formData, setFormData] = useState<FormData>({
         employeeId: "",
         employeeName: '',
@@ -22,40 +27,46 @@ const FormElement = () => {
         }))
     }
 
-    const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        setFormData(formData)
+        onAddEmployee(formData)
+        // Here you can add logic to handle the form submission, like sending data to an API
+        setFormData({
+            employeeId: "",
+            employeeName: '',
+            salary: ''
+        }); 
     }
 
     return ( 
-        <form className="flex flex-col flex-wrap w-full gap-5 mt-5 text-xl border p-5 rounded-xl">
+        <form onSubmit={handleSubmit} className="flex flex-col flex-wrap w-full gap-5 mt-5 text-xl border p-5 rounded-xl">
             <Input
                 placeholder="Employee ID"
                 type="text"
-                className="w-full"
                 name="employeeId"
                 value={formData.employeeId}            
                 onChange={handleChange}
+                className="mb-2 border px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <Input
                 placeholder="Employee Name"
                 type="text"
-                className="w-full"
                 name="employeeName"
                 value={formData.employeeName}            
                 onChange={handleChange}
+                className="mb-2 border px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <Input 
+            <Input
                 placeholder="Salary"
                 type="text"
-                className=" w-full p-0 m-0"
                 name="salary"
                 value={formData.salary}
                 onChange={handleChange}
+                className="mb-2 border px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <SubmitBtn 
                 text="Submit"
-                onClick={handleSubmit}
+                onClick={()=> {}}
             />
         </form>
      );
