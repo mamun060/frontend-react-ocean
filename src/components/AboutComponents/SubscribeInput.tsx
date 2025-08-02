@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface SubcribeInputProps {
   type?: string;
@@ -11,10 +11,18 @@ interface SubcribeInputProps {
 const SubscribeInput: React.FC<SubcribeInputProps> = () =>{
   const inputRef = useRef(null)
 
-  const handleClick = () => {
-    if (inputRef.current){
-      inputRef.current.focus()
+  useEffect(()=> {
+    if (inputRef.current) {
+      inputRef.current.focus();
     }
+  },[])
+
+  const handleClick = () => {
+    // if (inputRef.current){
+    //   inputRef.current.focus()
+    // }
+    console.log("Subscribe button clicked");
+    
   };
 
   return (

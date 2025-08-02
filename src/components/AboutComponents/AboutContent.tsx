@@ -1,4 +1,4 @@
-import { useEffect , useState } from "react"
+import { useEffect , useRef, useState } from "react"
 
 interface User {
   id: number;
@@ -10,6 +10,8 @@ interface User {
 
 function AboutContent() {
   const [users, setUsers] = useState<User[]>([])
+  const itemRef = useRef<HTMLLIElement>(null)
+
 
   useEffect(()=>{
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -17,12 +19,20 @@ function AboutContent() {
       .then((data) => setUsers(data))
       .catch((error) => console.error('Error fetching data:', error));
   },[])
+
+  useEffect(() => {
+    if (itemRef.current) {
+      itemRef.current.style.backgroundColor = 'lightblue';
+      itemRef.current.style.padding = '10px';
+    }
+  }, []);
+
   return (
     <div>
       <ul>
         {
           users.map((user)=>(
-            <li className="py-2" key={user.id}>
+            <li ref={itemRef} className="py-2" key={user.id}>
               {user.id} -{user.name} - {user.email} - {user.phone} - {user.website}
             </li>
           ))
