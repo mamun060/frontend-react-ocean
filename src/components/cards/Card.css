@@ -1,0 +1,23 @@
+.board-container {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  background-color: #0079bf; /* Trello-like background */
+  min-height: 100vh;
+  align-items: flex-start; /* Align boards to the top */
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  padding: 10px;
+  cursor: grab;
+  word-break: break-word;
+}
+
+.card.dragging-card {
+  opacity: 0.5;
+  transform: rotate(1deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}

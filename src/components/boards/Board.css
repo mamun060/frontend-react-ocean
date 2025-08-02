@@ -1,0 +1,52 @@
+.board {
+  flex-shrink: 0; /* Prevent boards from shrinking */
+  width: 280px;
+  background-color: #ebecf0;
+  border-radius: 3px;
+  padding: 8px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  cursor: grab;
+  position: relative; /* For drop indicators */
+}
+
+.board.dragging-board {
+  opacity: 0.7;
+  transform: rotate(2deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.board-header {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 20px; /* Allows dropping into empty lists */
+  padding-bottom: 5px;
+}
+
+.drop-indicator-line {
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin: 0 -8px; /* Extend across the board */
+  animation: pulse 0.8s infinite alternate;
+}
+
+.drop-indicator-empty-list {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 20px;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+@keyframes pulse {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}

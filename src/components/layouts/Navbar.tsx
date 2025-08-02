@@ -14,7 +14,7 @@ function Navbar() {
                 <Link to="/products" className="hover:underline text-xl font-semibold">Products</Link>
             </li>
             <li>
-                <Link to="/contact" className="hover:underline text-xl font-semibold">Contact</Link>
+                <Link to="/game" className="hover:underline text-xl font-semibold">Game</Link>
             </li>
         </ul>
     </nav>
